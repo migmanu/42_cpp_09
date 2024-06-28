@@ -2,13 +2,13 @@ CFLAGS = -Werror -Wextra -Wall -std=c++98 -g
 CC = c++
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
-EXEC = exec
+NAME = exec
 
 # Default rule
-all: $(EXEC)
+all: $(NAME)
 
 # Rule to create the executable
-$(EXEC): $(OBJS)
+$(NAME): $(OBJS)
 	@$(CC) -o $@ $^
 
 # Rule to create object files
@@ -21,14 +21,14 @@ clean:
 
 # Rule to clean everything
 fclean: clean
-	@rm -f $(EXEC)
+	@rm -f $(NAME)
 
 # Rule to recompile everything
 re: fclean all
 
 # Rule to run program
 run : all
-	./$(EXEC)
+	./$(NAME)
 
 # Phony targets
 .PHONY: all clean fclean re run
