@@ -1,5 +1,5 @@
-CFLAGS = -Werror -Wextra -Wall -std=c++98 -g
-CC = c++
+CXXFLAGS = -Werror -Wextra -Wall -std=c++98 -g
+CXX = c++
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = exec
@@ -9,11 +9,11 @@ all: $(NAME)
 
 # Rule to create the executable
 $(NAME): $(OBJS)
-	@$(CC) -o $@ $^
+	@$(CXX) -o $@ $^
 
 # Rule to create object files
 %.o: %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Rule to clean object files
 clean:
