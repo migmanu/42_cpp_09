@@ -2,7 +2,7 @@ CXXFLAGS = -Werror -Wextra -Wall -std=c++98 -g
 CXX = c++
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = exec
+NAME = btc
 
 # Default rule
 all: $(NAME)
@@ -25,10 +25,6 @@ fclean: clean
 
 # Rule to recompile everything
 re: fclean all
-
-# Rule to run program
-run : all
-	./$(NAME)
 
 # Phony targets
 .PHONY: all clean fclean re run
