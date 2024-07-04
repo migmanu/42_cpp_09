@@ -6,14 +6,13 @@
 /*   By: migmanu <jmanuelmigoya@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 17:47:07 by migmanu           #+#    #+#             */
-/*   Updated: 2024/07/04 12:39:01 by migmanu          ###   ########.fr       */
+/*   Updated: 2024/07/04 19:03:42 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitCoinExchange.hpp"
 #include <cstdlib>
 #include <iostream>
-
 
 int main(int ac, char *av[])
 {
