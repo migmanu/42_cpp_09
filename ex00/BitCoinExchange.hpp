@@ -6,7 +6,7 @@
 /*   By: migmanu <jmanuelmigoya@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:59:23 by migmanu           #+#    #+#             */
-/*   Updated: 2024/07/04 19:21:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2024/07/05 14:14:26 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <map>
 #include <string>
 #include <utility>
+#include "validators.hpp"
 
 class BitCoinExchange
 {

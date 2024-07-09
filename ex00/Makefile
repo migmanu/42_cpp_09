@@ -1,6 +1,6 @@
 CXXFLAGS = -Werror -Wextra -Wall -std=c++98 -g
 CXX = c++
-SRCS = main.cpp BitCoinExchange.cpp
+SRCS = main.cpp BitCoinExchange.cpp validators.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = btc
 

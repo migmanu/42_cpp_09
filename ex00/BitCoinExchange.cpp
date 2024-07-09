@@ -6,11 +6,13 @@
 /*   By: migmanu <jmanuelmigoya@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:06:30 by migmanu           #+#    #+#             */
-/*   Updated: 2024/07/04 20:45:53 by migmanu          ###   ########.fr       */
+/*   Updated: 2024/07/09 13:24:35 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitCoinExchange.hpp"
+#include <iomanip>
+#include <iterator>
 
 std::fstream BitCoinExchange::db_stream;
 std::fstream BitCoinExchange::input_stream;
@@ -89,62 +91,32 @@ void BitCoinExchange::open_input_file(std::string file_name)
 	catch (std::exception &e)
 	{
 		std::cout << "Error: could not open file." << std::endl;
-		input_stream.close();
 		throw BitCoinExchange::BadInputFile();
 	}
 }
 
-bool is_valid_characters(const std::string &line)
-{
-	for (std::string::const_iterator it = line.begin(); it != line.end(); ++it)
-	{
-		if (!isdigit(*it) && *it != '-' && *it != '|' && *it != '.' && *it != ' ' &&
-			*it != ',')
-			return false;
-		if (line[10] != ' ' && line[11] != '|' && line[12] != '|')
-			return false;
-	}
-	return true;
-}
-
-bool is_valid_date(const std::string &date)
-{
-	struct tm tm = {};
-	char buf[11];
-
-	if (strptime(date.c_str(), "%Y-%m-%d", &tm) == NULL)
-		return false;
-
-	mktime(&tm);
-
-	strftime(buf, sizeof(buf), "%Y-%m-%d", &tm);
-
-	return date == buf;
-}
-
-bool is_valid_line(const std::string &line)
-{
-	if (!is_valid_date(line.substr(0, 10)) || !is_valid_characters(line))
-	{
-		std::cout << "Error: bad input => " << line << std::endl;
-		return false;
-	}
-	return true;
-}
-
 void BitCoinExchange::print_values(void)
 {
+	BitCoinExchange::input_stream.exceptions(std::ifstream::goodbit);
 	std::string line;
-	while (1)
+	getline(input_stream, line);
+	if (line != "date | value")
 	{
-		try
+		std::cout << "Error: input file must have header: \"date | value\""
+				  << std::endl;
+		return;
+	}
+	while (getline(input_stream, line))
+	{
+		if (is_valid_line(line))
 		{
-			getline(input_stream, line);
-			is_valid_line(line);
-		}
-		catch (std::exception &e)
-		{
-			break;
+			std::string date = line.substr(0, 10);
+			float qty = std::atof(line.substr(13).c_str());
+			std::map<std::string, float>::iterator it = db.lower_bound(date);
+			if (it != db.begin() && (it)->first != date)
+				--it;
+			std::cout << std::setprecision(7) << date << " => " << qty << " = "
+					  << qty * it->second << std::endl;
 		}
 	}
 	input_stream.close();
