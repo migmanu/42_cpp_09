@@ -2,7 +2,7 @@ CXXFLAGS = -Werror -Wextra -Wall -std=c++98 -g
 CXX = c++
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = exec
+NAME = RPN
 
 # Default rule
 all: $(NAME)
