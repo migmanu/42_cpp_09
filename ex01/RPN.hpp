@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 15:35:24 by jmigoya-          #+#    #+#             */
-/*   Updated: 2024/07/16 14:02:13 by jmigoya-         ###   ########.fr       */
+/*   Created: 2024/07/16 13:51:49 by jmigoya-          #+#    #+#             */
+/*   Updated: 2024/07/16 14:01:59 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
 #include <cctype>
 #include <cstdlib>
 #include <exception>
 #include <iostream>
+#include <stack>
 #include <string>
 
-int main(int ac, char *av[])
+class RPN
 {
-	if (ac != 2)
-	{
-		std::cout << "Error: RPM takes one argument, as per subject's examples."
-				  << std::endl;
-		return EXIT_FAILURE;
-	}
-	if (!RPN::validate_arg(av[1]))
-	{
-		std::cout << "Error" << std::endl;
-		return EXIT_FAILURE;
-	}
-	try
-	{
-		RPN::calculate_RPN(av[1]);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return 0;
-}
+  public:
+	~RPN(void);
+	static bool validate_arg(std::string arg);
+	static void calculate_RPN(std::string arg);
+
+  private:
+	RPN(void);
+	RPN(const RPN &src);
+	RPN &operator=(const RPN &rhs);
+};
