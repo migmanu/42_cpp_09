@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:53:41 by jmigoya-          #+#    #+#             */
-/*   Updated: 2024/07/16 15:13:55 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2024/07/24 17:42:06 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int ac, char *av[])
 {
 	if (ac <= 2)
 	{
-		std::cout
+		std::cerr
 			<< "Error: PmergeMe takes at least two positive integers as arguments."
 			<< std::endl;
 		return EXIT_FAILURE;
@@ -27,14 +27,14 @@ int main(int ac, char *av[])
 	{
 		if (std::strlen(av[i]) > 10 || std::strcmp(av[i], "2147483647") > 0)
 		{
-			std::cout << "Error." << std::endl;
+			std::cerr << "Error." << std::endl;
 			return EXIT_FAILURE;
 		}
 		for (int j = 0; av[i][j] != '\0'; j++)
 		{
 			if (!std::isdigit(av[i][j]))
 			{
-				std::cout << "Error." << std::endl;
+				std::cerr << "Error." << std::endl;
 				return EXIT_FAILURE;
 			}
 		}
