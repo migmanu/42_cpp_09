@@ -6,12 +6,11 @@
 /*   By: migmanu <jmanuelmigoya@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 19:59:14 by migmanu           #+#    #+#             */
-/*   Updated: 2024/07/25 20:17:22 by migmanu          ###   ########.fr       */
+/*   Updated: 2024/07/25 22:25:26 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <cstddef>
 
 void print_list(std::list<int> list)
 {
@@ -37,7 +36,7 @@ void PmergeMe::PmergeMe_list(int ac, char *av[])
 								   : std::cout << "Not sorted" << std::endl;
 	if (!PmergeMe::is_list_sorted(list))
 	{
-		list = PmergeMe::sort_list(list);
+		list = sort_list(list);
 		print_list(list);
 	}
 }
