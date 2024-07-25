@@ -1,5 +1,6 @@
+#include <cstdlib>
+#include <iostream>
 #include <list>
-#include <string>
 
 class PmergeMe
 {
@@ -12,7 +13,7 @@ class PmergeMe
 	PmergeMe(const PmergeMe &src);
 	PmergeMe &operator=(const PmergeMe &rhs);
 
-	static void sort_list(std::list<int> list);
-	static std::list<int> create_list(int ac, char * av[]);
+	static std::list<int> sort_list(std::list<int> &list);
+	static std::list<int> create_list(int ac, char *av[]);
 	static bool is_list_sorted(std::list<int> list);
 };
