@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:53:41 by jmigoya-          #+#    #+#             */
-/*   Updated: 2024/08/05 17:46:15 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:27:44 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int main(int ac, char *av[])
 			return EXIT_FAILURE;
 		}
 	}
-	PmergeMe::PmergeMe_list(ac, av);
+	PmergeMe::run(ac, av);
 	return 0;
 }
