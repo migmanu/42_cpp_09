@@ -11,6 +11,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@$(CXX) -o $@ $^
 
+# Rule to create object files
+%.o: %.cpp
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+
 # Rule to clean object files
 clean:
 	@rm -f $(OBJS)
