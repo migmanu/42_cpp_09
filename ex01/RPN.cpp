@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:58:21 by jmigoya-          #+#    #+#             */
-/*   Updated: 2024/07/16 14:01:53 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:05:26 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,5 @@ void RPN::calculate_RPN(std::string arg)
 			}
 		}
 	}
-	std::cout << "result is: " << stk.top() << std::endl;
+	std::cout << stk.top() << std::endl;
 }

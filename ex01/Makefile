@@ -26,9 +26,5 @@ fclean: clean
 # Rule to recompile everything
 re: fclean all
 
-# Rule to run program
-run : all
-	./$(NAME)
-
 # Phony targets
 .PHONY: all clean fclean re run
