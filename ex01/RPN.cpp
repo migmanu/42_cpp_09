@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:58:21 by jmigoya-          #+#    #+#             */
-/*   Updated: 2024/08/06 18:05:26 by migmanu          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:24:52 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void RPN::calculate_RPN(std::string arg)
 				break;
 			}
 			case 3: {
-				if (a == 0 && b == 0)
+				if (a == 0)
 					throw std::invalid_argument("Error: division by zero!");
 				stk.push(b / a);
 				break;
